@@ -1,0 +1,170 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The HTML5 Herald</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="./index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body onload="myFunction()">
+    
+  <script src="./index.js"></script>
+<div class="left-container">
+<p class="intro">
+    This project is a stable matching problem algorithm. In this scenario each owner has a list 
+    of dogs. The list is in favorite to least favorite order. Similar to the owners, each individual dog 
+    has a list of owners from favorite to least favorite. The algorithm will find the best possible matches
+    based on each owner's and dog's preferences. Both lists of favorites are generated randomly every time 
+    you refresh the page.
+</p>   
+<button onclick="findMatches()">Find matches</button>
+<button onclick="window.location.reload();">Try Again</button>
+<h2 class="table_owner_title"style="margin-left: 15px;">Owners choice number</h2>
+<div class="table">
+<table id="myTable">
+  <tr>
+    <th>Owner</th>
+    <th>First Choice</th>
+    <th>Choice #</th>
+  </tr>
+</table>
+</div>
+</div>
+<div id="wrp" class="wrapper">
+<div class="owners">
+<div id='o1' class="owner"><p class="ownerName">Fer R</p></div>
+<div id='o2' class="owner"><p class="ownerName">Victor P</p></div>
+<div id='o3' class="owner"><p class="ownerName">Cesar H</p></div>
+<div id='o4' class="owner"><p class="ownerName">Alex F</p></div>
+<div id='o5' class="owner"><p class="ownerName">Juan P</p></div>
+<div id='o6' class="owner"><p class="ownerName">Fer G</p></div>
+<div id='o7' class="owner"><p class="ownerName">Mau R</p></div>
+<div id='o8' class="owner"><p class="ownerName">Ana P</p></div>
+<div id='o9' class="owner"><p class="ownerName">Karely</p></div>
+<div id='o10' class="owner"><p class="ownerName">Claudia F</p></div>
+<div id='o11' class="owner"><p class="ownerName">Fran R</p></div>
+<div id='o12' class="owner"><p class="ownerName">Aylin V</p></div>
+<div id='o13' class="owner"><p class="ownerName">Daniel G</p></div>
+<div id='o14' class="owner"><p class="ownerName">Edu D</p></div>
+<div id='o15' class="owner"><p class="ownerName">Pau M</p></div>
+<div id='o16' class="owner"><p class="ownerName">Aranza S</p></div>
+<div id='o17' class="owner"><p class="ownerName">Ayde M</p></div>
+<div id='o18' class="owner"><p class="ownerName">Cinthia</p></div>
+<div id='o19' class="owner"><p class="ownerName">Miguel P</p></div>
+<div id='o20' class="owner"><p class="ownerName">Edu G</p></div>
+</div>
+<div class="lines">
+<div class="line"><div class="line_drawing"><p class="line_text" id="l1">Has not adopted any dog</p></div></div>
+<div class="line"><div class="line_drawing"><p class="line_text" id="l2">Has not adopted any dog</p></div></div>
+<div class="line"><div class="line_drawing"><p class="line_text" id="l3">Has not adopted any dog</p></div></div>
+<div class="line"><div class="line_drawing"><p class="line_text" id="l4">Has not adopted any dog</p></div></div>
+<div class="line"><div class="line_drawing"><p class="line_text" id="l5">Has not adopted any dog</p></div></div>
+<div class="line"><div class="line_drawing"><p class="line_text" id="l6">Has not adopted any dog</p></div></div>
+<div class="line"><div class="line_drawing"><p class="line_text" id="l7">Has not adopted any dog</p></div></div>
+<div class="line"><div class="line_drawing"><p class="line_text" id="l8">Has not adopted any dog</p></div></div>
+<div class="line"><div class="line_drawing"><p class="line_text" id="l9">Has not adopted any dog</p></div></div>
+<div class="line"><div class="line_drawing"><p class="line_text" id="l10">Has not adopted any dog</p></div></div>
+<div class="line"><div class="line_drawing"><p class="line_text" id="l11">Has not adopted any dog</p></div></div>
+<div class="line"><div class="line_drawing"><p class="line_text" id="l12">Has not adopted any dog</p></div></div>
+<div class="line"><div class="line_drawing"><p class="line_text" id="l13">Has not adopted any dog</p></div></div>
+<div class="line"><div class="line_drawing"><p class="line_text" id="l14">Has not adopted any dog</p></div></div>
+<div class="line"><div class="line_drawing"><p class="line_text"id="l15">Has not adopted any dog</p></div></div>
+<div class="line"><div class="line_drawing"><p class="line_text" id="l16">Has not adopted any dog</p></div></div>
+<div class="line"><div class="line_drawing"><p class="line_text" id="l17">Has not adopted any dog</p></div></div>
+<div class="line"><div class="line_drawing"><p class="line_text" id="l18">Has not adopted any dog</p></div></div>
+<div class="line"><div class="line_drawing"><p class="line_text" id="l19">Has not adopted any dog</p></div></div>
+<div class="line"><div class="line_drawing"><p class="line_text" id="l20">Has not adopted any dog</p></div></div>
+</div>
+<div class="dogs">
+<div id='d1' class="dog"><p id="dn1" class="ownerName"></p></div>
+<div id='d2' class="dog"><p id="dn2" class="ownerName"></p></div>
+<div id='d3' class="dog"><p id="dn3" class="ownerName"></p></div>
+<div id='d4' class="dog"><p id="dn4" class="ownerName"></p></div>
+<div id='d5' class="dog"><p id="dn5" class="ownerName"></p></div>
+<div id='d6' class="dog"><p id="dn6" class="ownerName"></p></div>
+<div id='d7' class="dog"><p id="dn7" class="ownerName"></p></div>
+<div id='d8' class="dog"><p id="dn8" class="ownerName"></p></div>
+<div id='d9' class="dog"><p id="dn9" class="ownerName"></p></div>
+<div id='d10' class="dog"><p id="dn10" class="ownerName"></p></div>
+<div id='d11' class="dog"><p id="dn11" class="ownerName"></p></div>
+<div id='d12' class="dog"><p id="dn12" class="ownerName"></p></div>
+<div id='d13' class="dog"><p id="dn13" class="ownerName"></p></div>
+<div id='d14' class="dog"><p id="dn14" class="ownerName"></p></div>
+<div id='d15' class="dog"><p id="dn15" class="ownerName"></p></div>
+<div id='d16' class="dog"><p id="dn16" class="ownerName"></p></div>
+<div id='d17' class="dog"><p id="dn17" class="ownerName"></p></div>
+<div id='d18' class="dog"><p id="dn18" class="ownerName"></p></div>
+<div id='d19' class="dog"><p id="dn19" class="ownerName"></p></div>
+<div id='d20' class="dog"><p id="dn20" class="ownerName"></p></div>
+</div>
+</div>
+
+<div class="right-container">
+  <h3 style="text-align: center;">Dogs to be adopted</h3>
+<div class="dogs_small">
+<div id='sd1' class="small-dog"><p id='sd1t' class="dog_status">NOT ADOPTED</p></div>
+<div id='sd2' class="small-dog"><p id='sd2t' class="dog_status">NOT ADOPTED</p></div>
+<div id='sd3' class="small-dog"><p id='sd3t' class="dog_status">NOT ADOPTED</p></div>
+<div id='sd4' class="small-dog"><p id='sd4t' class="dog_status">NOT ADOPTED</p></div>
+<div id='sd5' class="small-dog"><p id='sd5t' class="dog_status">NOT ADOPTED</p></div>
+<div id='sd6' class="small-dog"><p id='sd6t' class="dog_status">NOT ADOPTED</p></div>
+<div id='sd7' class="small-dog"><p id='sd7t' class="dog_status">NOT ADOPTED</p></div>
+<div id='sd8' class="small-dog"><p id='sd8t' class="dog_status">NOT ADOPTED</p></div>
+<div id='sd9' class="small-dog"><p id='sd9t' class="dog_status">NOT ADOPTED</p></div>
+<div id='sd10' class="small-dog"><p id='sd10t' class="dog_status">NOT ADOPTED</p></div>
+<div id='sd11' class="small-dog"><p id='sd11t' class="dog_status">NOT ADOPTED</p></div>
+<div id='sd12' class="small-dog"><p id='sd12t' class="dog_status">NOT ADOPTED</p></div>
+<div id='sd13' class="small-dog"><p id='sd13t' class="dog_status">NOT ADOPTED</p></div>
+<div id='sd14' class="small-dog"><p id='sd14t' class="dog_status">NOT ADOPTED</p></div>
+<div id='sd15' class="small-dog"><p id='sd15t' class="dog_status">NOT ADOPTED</p></div>
+<div id='sd16' class="small-dog"><p id='sd16t' class="dog_status">NOT ADOPTED</p></div>
+<div id='sd17' class="small-dog"><p id='sd17t' class="dog_status">NOT ADOPTED</p></div>
+<div id='sd18' class="small-dog"><p id='sd18t' class="dog_status">NOT ADOPTED</p></div>
+<div id='sd19' class="small-dog"><p id='sd19t' class="dog_status">NOT ADOPTED</p></div>
+<div id='sd20' class="small-dog"><p id='sd20t' class="dog_status">NOT ADOPTED</p></div>
+</div>
+<div class="table">
+    <h2>Dogs choice number</h2>
+<table id="myTableDogs">
+    <tr>
+      <th>Dog</th>
+      <th>First Choice</th>
+      <th>Choice #</th>
+    </tr>
+  </table>
+  </div>
+</div>
+<div class="mobile_tables">
+  <div class="mob_table">
+    <h2>Owners choice number</h2>
+    <div>
+    <table id="myTableM">
+      <tr>
+        <th>Owner</th>
+        <th>First Choice</th>
+        <th>Choice #</th>
+      </tr>
+    </table>
+  </div>
+  <h2>Dogs Choice Number</h2>
+    <div>
+<table id="myTableDogsM">
+    <tr>
+      <th>Dog</th>
+      <th>First Choice</th>
+      <th>Choice #</th>
+    </tr>
+  </table>
+</div>
+  </div>
+</div>
+
+</body>
+</html>
